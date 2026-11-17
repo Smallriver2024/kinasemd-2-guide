@@ -1,6 +1,6 @@
 <h1 align="center">KinaseMD 2.0</h1>
 
-<p align="center"><strong>在哪里查人类激酶突变及其药物反应？</strong></p>
+<p align="center"><strong>做激酶突变耐药分析，可以用哪个数据库？</strong></p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/version-2.0-2563eb" alt="版本 2.0">
@@ -17,7 +17,7 @@
   <a href="#citation">引用方式</a>
 </p>
 
-**KinaseMD 2.0** 是一个公开数据库，用于研究人类激酶突变与抑制剂反应和下游磷酸化变化的关系。你可以从一个突变、一种抑制剂或一个信号变化出发，通过关联的激酶页面定位结构区域、比较实测药物反应，并找到值得进一步验证的信号证据或预测位点。论文发表的 2.0 版本覆盖 547 种人类蛋白激酶，收录 422,244 条细胞系药物反应测量。 [Nucleic Acids Research 论文](https://doi.org/10.1093/nar/gkag1170)
+**KinaseMD 2.0** 可以用来查人类激酶突变的结构位置、细胞系药敏和下游信号证据，也可以筛选接下来要验证的磷酸化位点。手上有突变、抑制剂或用药后的信号变化时，可从相应的激酶页面开始查。论文报告的 2.0 版本覆盖 547 种人类蛋白激酶，收录 422,244 条细胞系药物反应测量。 [Nucleic Acids Research 论文](https://doi.org/10.1093/nar/gkag1170)
 
 <p align="center">
   <a href="./assets/figure-1.jpg"><img src="./assets/figure-1.jpg" width="760" alt="KinaseMD 2.0 的三个工作流程，包括结构注释扩展、突变与药物反应整合、激酶扰动证据映射"></a>
@@ -33,23 +33,23 @@
 
 ## 什么情况下可以用 KinaseMD 2.0？
 
-KinaseMD 2.0 可以把**突变与结构位置 → 药物反应 → 下游信号 → 待验证的候选位点**串起来。打开对应的激酶页面后，从与你的问题最相关的模块开始。 [数据库工作流程及论文补充教程](https://academic.oup.com/nar/advance-article/doi/10.1093/nar/gkag1170/9036065#supplementary-data)
+KinaseMD 2.0 可以把**突变与结构位置 → 药物反应 → 下游信号 → 待验证的候选位点**串起来。根据手上的线索，打开对应激酶页面里的模块。 [数据库工作流程及论文补充教程](https://academic.oup.com/nar/advance-article/doi/10.1093/nar/gkag1170/9036065#supplementary-data)
 
-### 发现一个激酶突变，想知道它位于哪里
+### 查到一个激酶突变，怎么看它在哪个结构区？
 
-在 **Mutations** 中核对突变残基及来源数据集，再在 **Substructures** 中查看它是否落在 gatekeeper 位点、甘氨酸富集环（G-loop）、αC 螺旋或活化环（A-loop）。注释会标明哪些位置来自来源资料，哪些来自计算预测。
+**Mutations** 提供可筛选的突变表和按残基位置展示样本数的图。突变记录包含氨基酸变化和来源数据集。**Substructures** 给出 gatekeeper 位点及甘氨酸富集环（G-loop）、αC 螺旋、活化环（A-loop）的区间，并标明注释来自资料整理还是计算预测。
 
-### 想知道某个突变有没有对应的抑制剂反应数据
+### 哪里查激酶抑制剂在不同细胞系里的 IC₅₀？
 
-在 **Drug response** 中查看细胞系实测的 IC₅₀ 及来源，再在 **Drug resistance** 中查看候选耐药关联是如何计算的、比较了哪些细胞系或基因型。判断哪些结果值得跟进时，要保留原来的比较背景。
+**Drug response** 提供按药物和细胞系列出的实测 IC₅₀ 表和来源标识。**Drug resistance** 给出目标细胞系的中位 IC₅₀ 相对于相应处理或基因型比较组的结果。下载表中还可查到比较背景的细胞系数量。
 
-### 用药后观察到信号变化，想找已有证据对照
+### 用药后磷酸化变了，去哪找原始文献和数据？
 
-在 **Drug perturbation** 中查看与该激酶和药物相关的证据。KPEM 通过 **PMID** 把文献报道的激酶活性或磷酸化变化链接到原文。磷酸化蛋白质组证据可用 **PXD** 编号追溯数据集，并区分实测位点变化和由此推断的激酶相关信号。
+**Drug perturbation** 的证据表提供药物或干预、激酶、底物、磷酸化位点、变化方向及可用的生物学背景。KPEM 文献记录可用 **PMID** 回查原文。磷酸化蛋白质组记录可用 **PXD** 编号回查源数据，并查看基于位点测量推断的激酶相关信号。
 
-### 想筛选下一步可验证的磷酸化位点
+### 想验证下游机制，先看哪些磷酸化位点？
 
-在 **Network-rewiring** 中查看突变可能如何改变特定位点的磷酸化倾向。可以结合已有实验结果，从预测中选出要验证的激酶–底物对、磷酸化位点和变化方向。
+**Network-rewiring** 提供位点级激酶–底物网络和突变相关的磷酸化倾向预测。预测记录对应具体的激酶、底物、位点、突变和变化方向。可以结合已有实验结果，选择下一步要验证的位点。
 
 <a name="worked-examples"></a>
 
@@ -59,30 +59,40 @@ KinaseMD 2.0 可以把**突变与结构位置 → 药物反应 → 下游信号 
 
 ### EGFR T790M 与厄洛替尼
 
-搜索 **EGFR**，先确认 **T790M** 位于 gatekeeper 位点。在 **Drug response** 中，GDSC2 的厄洛替尼（erlotinib）IC₅₀ 在 NCI-H1975（L858R/T790M）中是 NCI-H3255（L858R）的 4.4 倍。再从 **Drug perturbation** 追溯数据集 **PXD004373**，可看到厄洛替尼对 NCI-H1975 的酪氨酸磷酸化抑制较弱。可以据此筛选值得跟进的位点，并保留两条细胞系各自的背景。 [NAR 案例，图 4](https://doi.org/10.1093/nar/gkag1170) · [ProteomeXchange PXD004373](https://proteomecentral.proteomexchange.org/cgi/GetDataset?ID=PXD004373)
+**EGFR T790M 位于 gatekeeper 位点。** 在 GDSC2 中，NCI-H1975（L858R/T790M）的厄洛替尼（erlotinib）IC₅₀ 是 NCI-H3255（L858R）的 **4.4 倍**。在 **PXD004373** 的磷酸化蛋白质组实验中，厄洛替尼对 NCI-H1975 的酪氨酸磷酸化抑制较弱。 [NAR 案例，图 4](https://doi.org/10.1093/nar/gkag1170) · [ProteomeXchange PXD004373](https://proteomecentral.proteomexchange.org/cgi/GetDataset?ID=PXD004373) · [Zhang 等，PMID 28331001](https://pubmed.ncbi.nlm.nih.gov/28331001/)
+
+从 **Substructures** 和 **Mutations** 确认位置，在 **Drug response** 比较细胞系测量，再从 **Drug perturbation** 追溯原始数据。筛选后续验证位点时，保留两条细胞系各自的遗传背景。
 
 <a name="ret-example"></a>
 
 ### RET V804M 与卡博替尼
 
-搜索 **RET**，先确认 **V804M** 位于 gatekeeper 位点。在 **Drug resistance** 中查看**卡博替尼（cabozantinib）**的候选耐药关联，再对照已发表的野生型 RET 与 V804M 抑制实验。例如，一项纯化激酶实验报告，卡博替尼对 V804M 的抑制活性低于对野生型 RET 的抑制活性。随后用 **Drug perturbation** 追溯 KPEM 文献，用 **Network-rewiring** 筛选待验证的磷酸化位点。整理时分别记录细胞系反应、生化实验结果和位点预测各自的来源与模型背景。 [KinaseMD 2.0 补充说明 1 和补充图 S2](https://academic.oup.com/nar/advance-article/doi/10.1093/nar/gkag1170/9036065#supplementary-data) · [Wirth 等，图 3C](https://doi.org/10.1200/PO.19.00189)
+**RET V804M 位于 gatekeeper 位点。** 一项独立的纯化激酶实验显示，卡博替尼（cabozantinib）对 V804M 的抑制活性低于对野生型 RET 的抑制活性。 [NAR 补充说明 1 和补充图 S2](https://academic.oup.com/nar/advance-article/doi/10.1093/nar/gkag1170/9036065#supplementary-data) · [Wirth 等，图 3C，PMID 32923848](https://pubmed.ncbi.nlm.nih.gov/32923848/)
+
+在 **Drug resistance** 中查看细胞系层面的候选耐药关联，在 **Drug perturbation** 中追溯 KPEM 文献，再用 **Network-rewiring** 筛选待验证的磷酸化位点。整理时分别保留细胞系比较、生化实验和位点预测各自的来源与模型背景。
 
 <a name="coverage"></a>
 
 ## 数据覆盖范围
 
-以下统计对应 NAR 论文报告的 KinaseMD 2.0 版本。 [论文表 1 和表 2](https://doi.org/10.1093/nar/gkag1170)
+统计对应 NAR 论文于 2026 年 11 月 12 日在线报告的 KinaseMD 2.0 版本。来源列只标明论文明确记录的核对时间。 [NAR 方法与表 1、表 2](https://doi.org/10.1093/nar/gkag1170)
 
-| 数据层 | 记录数 | 说明 |
-| --- | ---: | --- |
-| 人类蛋白激酶 | 547 | 每种参考激酶至少有一类结构区域注释 |
-| 激酶结构区域注释 | 13,522 | 含 1,161 条来源整理注释和 12,361 条 Dr. Kinase 预测 |
-| 癌症相关体细胞突变记录 | 2,018,114 | 其中 536,486 条映射到至少一个已注释的结构区域 |
-| 细胞系药物反应测量 | 422,244 | 包含 219 种药物的 IC₅₀ 记录 |
-| 候选耐药证据 | 1,614 | 基于细胞系药物反应比较得到的候选关联 |
-| 磷酸化网络重连预测 | 359,600 | 反映突变相关的磷酸化倾向变化 |
-| 文献报告的扰动证据 | 23,757 | 经人工复核的文献条目整理为激酶层级记录 |
-| 磷酸化蛋白质组推断的信号反应 | 53,029 | 来自 30 个公开药物处理数据集 |
+| 数据层 | 记录数 | 说明 | 来源及已知时间 |
+| --- | ---: | --- | --- |
+| 人类蛋白激酶 | 547 | 每种参考激酶至少有一类结构区域注释 | KinBase，以 UniProt 更新，并用 PhosphoSitePlus 核对分类（2026 年 2 月） |
+| 激酶结构区域注释 | 13,522 | 1,161 条来源整理注释和 12,361 条预测 | 原版 KinaseMD、更新的蛋白注释和 Dr. Kinase 预测 |
+| 癌症相关体细胞突变记录 | 2,018,114 | 其中 536,486 条映射到至少一个已注释的结构区域 | DepMap（CCLE）、GDSC、TCGA、ICGC、COSMIC |
+| 细胞系药物反应测量 | 422,244 | 包含 219 种药物的实测 IC₅₀ 记录 | CCLE 与更新后的 GDSC1 和 GDSC2 |
+| 候选耐药证据 | 1,614 | 基于细胞系比较得到的候选关联 | 合并的 GDSC1 和 GDSC2 IC₅₀ 数据 |
+| 磷酸化网络重连预测 | 359,600 | 反映突变相关的磷酸化倾向变化 | GPS 5.0 预测、EPSD 2.0 位点及 PhosphoSitePlus 激酶–底物注释 |
+| 文献报告的扰动证据 | 23,757 | 经人工复核的文献条目整理为激酶层级记录 | 以 PhosphoRLIE 处理 PubMed 题名与摘要，网站条目经人工复核 |
+| 磷酸化蛋白质组推断的信号反应 | 53,029 | 激酶相关信号反应 | ProteomeXchange/PRIDE 的 30 个公开药物处理数据集，经 PTM-SEA 分析 |
+
+## 证据解读与适用范围
+
+- **细胞系耐药关联。** 把相对升高的 IC₅₀ 解读为特定细胞系比较下的候选关联，同时记录药物、细胞系或基因型分组及数据集。涉及患者的解读需要独立的临床证据。
+- **磷酸化实测与预测。** 实测位点变化对应原实验条件。KPEM 的激酶层级信号推断和网络重连预测可用于提出待验证的假设。
+- **文献证据。** 查看复核状态，并用 PMID 回查原文，确认报道的结果、模型和实验条件。 [NAR 方法与讨论](https://doi.org/10.1093/nar/gkag1170)
 
 ## 怎样查询和下载数据？
 
@@ -112,5 +122,7 @@ Hu X, Lin S, Fu S, Zeng J, Xu Z, Zheng T, Wang T, Liu X, Huang P, Li Z, Liu T, X
 
 ## 相关资源
 
+- [机器可读的论文引用（CITATION.cff）](./CITATION.cff)
+- [数据集元数据（JSON-LD）](./dataset.jsonld)
 - [KMD2 核心分析代码](https://github.com/Smallriver2024/KMD2)
 - [PhosphoRLIE 文献证据提取流程](https://github.com/Smallriver2024/phosphorlie-skill)

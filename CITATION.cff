@@ -1,0 +1,65 @@
+cff-version: 1.2.0
+type: dataset
+title: KinaseMD 2.0
+version: "2.0"
+message: "If you use KinaseMD 2.0, please cite the Nucleic Acids Research article below."
+url: http://modinfor.com/KinaseMD/
+authors:
+  - family-names: Hu
+    given-names: Xiaojiang
+  - family-names: Lin
+    given-names: Shaofeng
+  - family-names: Fu
+    given-names: Shiyang
+  - family-names: Zeng
+    given-names: Jing
+  - family-names: Xu
+    given-names: Zhenmu
+  - family-names: Zheng
+    given-names: Tao
+  - family-names: Wang
+    given-names: Tao
+  - family-names: Liu
+    given-names: Xinyi
+  - family-names: Huang
+    given-names: Peng
+  - family-names: Li
+    given-names: Zhihong
+  - family-names: Liu
+    given-names: Tang
+  - family-names: Xu
+    given-names: Haodong
+preferred-citation:
+  type: article
+  title: "KinaseMD 2.0: an updated database of kinase mutations and drug response"
+  journal: Nucleic Acids Research
+  year: 2026
+  month: 11
+  date-published: "2026-11-12"
+  doi: 10.1093/nar/gkag1170
+  url: https://doi.org/10.1093/nar/gkag1170
+  authors:
+    - family-names: Hu
+      given-names: Xiaojiang
+    - family-names: Lin
+      given-names: Shaofeng
+    - family-names: Fu
+      given-names: Shiyang
+    - family-names: Zeng
+      given-names: Jing
+    - family-names: Xu
+      given-names: Zhenmu
+    - family-names: Zheng
+      given-names: Tao
+    - family-names: Wang
+      given-names: Tao
+    - family-names: Liu
+      given-names: Xinyi
+    - family-names: Huang
+      given-names: Peng
+    - family-names: Li
+      given-names: Zhihong
+    - family-names: Liu
+      given-names: Tang
+    - family-names: Xu
+      given-names: Haodong
