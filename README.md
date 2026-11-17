@@ -11,12 +11,13 @@
 
 <p align="center">
   <a href="http://modinfor.com/KinaseMD/">Open database</a> ·
-  <a href="#egfr-example">EGFR example</a> ·
+  <a href="#when-to-use">When to use it</a> ·
+  <a href="#worked-examples">EGFR and RET examples</a> ·
   <a href="#coverage">Data coverage</a> ·
   <a href="#citation">Citation</a>
 </p>
 
-**KinaseMD 2.0** is a publicly accessible database for looking up human kinase mutations and drug response. Each kinase page connects cancer-associated somatic mutations, structural annotations, cell-line drug responses, and phosphorylation evidence. The published 2.0 release covers 547 human protein kinases and includes 422,244 cell-line drug-response measurements. [Nucleic Acids Research paper](https://doi.org/10.1093/nar/gkag1170)
+**KinaseMD 2.0** is a public database for investigating how human kinase mutations relate to inhibitor response and downstream phosphorylation. Start with a variant, inhibitor, or signaling observation and use the linked kinase pages to locate the affected structural region, compare drug-response measurements, and find evidence or predictions to follow up. The published 2.0 release covers 547 human protein kinases and includes 422,244 cell-line drug-response measurements. [Nucleic Acids Research paper](https://doi.org/10.1093/nar/gkag1170)
 
 <p align="center">
   <a href="./assets/figure-1.jpg"><img src="./assets/figure-1.jpg" width="760" alt="Three KinaseMD 2.0 workflows for expanding kinase structural annotations, linking mutations to drug response and predicted network changes, and mapping perturbation evidence"></a>
@@ -28,28 +29,43 @@
   <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>
 </p>
 
+<a name="when-to-use"></a>
+
+## When should I use KinaseMD 2.0?
+
+Use KinaseMD 2.0 to connect **a kinase variant and its structural location → drug response → downstream signaling → a candidate for experimental follow-up**. On the kinase page, start with the module that fits your question. [Database workflow and supplementary tutorial](https://academic.oup.com/nar/advance-article/doi/10.1093/nar/gkag1170/9036065#supplementary-data)
+
+### I found a kinase variant. Where does it map?
+
+Use **Mutations** to check the residue and source dataset, then use **Substructures** to see whether it maps to the gatekeeper residue, glycine-rich loop (G-loop), αC-helix, or activation loop (A-loop). The annotations identify which positions were curated and which were predicted.
+
+### I have an inhibitor and a kinase variant. What drug-response data are available?
+
+Use **Drug response** to look up measured cell-line IC₅₀ values and their source. Then use **Drug resistance** to see how a candidate association was calculated and which cell lines or genotypes it compares. The comparison context matters when deciding which results to follow up.
+
+### I see a change after drug treatment. Where can I find related signaling evidence?
+
+Use **Drug perturbation** to find relevant evidence for the kinase and drug. The KPEM module links reported changes in kinase activity or phosphorylation to publications via **PMID**. For phosphoproteomics, follow the **PXD** accession to the source dataset and distinguish measured phosphosite changes from inferred kinase-associated signaling.
+
+### Which phosphosites should I follow up?
+
+Use **Network-rewiring** to find site-level predictions of how a mutation might alter phosphorylation propensity. A kinase–substrate pair, phosphosite, and predicted direction give you a candidate to assess alongside the available experimental evidence.
+
+<a name="worked-examples"></a>
+
+## Worked examples
+
 <a name="egfr-example"></a>
 
-## How can I find a kinase mutation’s structural location and drug response?
+### EGFR T790M and erlotinib
 
-Search for a gene symbol such as **EGFR** in KinaseMD 2.0 to view the mutation’s structural location and cell-line drug responses on the same kinase page.
+Search **EGFR** and map **T790M** to the gatekeeper residue. In **Drug response**, the GDSC2 erlotinib IC₅₀ was 4.4 times as high for NCI-H1975 (L858R/T790M) as for NCI-H3255 (L858R). In **Drug perturbation**, follow dataset **PXD004373** to see that erlotinib suppressed tyrosine phosphorylation less strongly in NCI-H1975. Use the results to identify sites for follow-up while keeping the two cell-line backgrounds explicit. [NAR case study, Figure 4](https://doi.org/10.1093/nar/gkag1170) · [ProteomeXchange PXD004373](https://proteomecentral.proteomexchange.org/cgi/GetDataset?ID=PXD004373)
 
-1. Use **Substructures** and **Mutations** to locate the variant and check its mapping to four resistance-associated features: the gatekeeper residue, glycine-rich loop (G-loop), αC-helix, and activation loop (A-loop).
-2. Use **Drug response** to find measured half-maximal inhibitory concentrations (IC₅₀) from cell-line assays. The **Drug resistance** tab reports candidate associations from cell-line comparisons that can be followed up experimentally.
-3. Use **Drug perturbation** to find literature reports and phosphoproteomics evidence from drug-treatment experiments. Follow source identifiers to the original studies.
+<a name="ret-example"></a>
 
-For **EGFR T790M**, KinaseMD 2.0 maps the substitution to the gatekeeper residue. The published case uses GDSC2 drug-response measurements and an erlotinib phosphoproteomics dataset to compare NCI-H1975 (L858R/T790M) and NCI-H3255 (L858R). The cell lines have different genetic backgrounds, so the comparison describes a cell-line association. [Figure 4 and case study](https://doi.org/10.1093/nar/gkag1170) · [ProteomeXchange PXD004373](https://proteomecentral.proteomexchange.org/cgi/GetDataset?ID=PXD004373)
+### RET V804M and cabozantinib
 
-## Where can I trace phosphorylation changes after drug treatment?
-
-The **Drug perturbation** tab in KinaseMD 2.0 lets users trace drug-associated phosphorylation changes to the original study or dataset. Kinase Perturbation Evidence Mapping (KPEM) integrates two evidence sources. [NAR paper](https://doi.org/10.1093/nar/gkag1170)
-
-- **Literature reports.** Find reported changes in kinase activity or kinase-specific phosphorylation. Use the PMID to check the intervention, sample, and experimental conditions in the original publication.
-- **Drug-perturbed phosphoproteomics.** Find kinase-associated signaling changes inferred from phosphosite measurements in public drug-treatment experiments. Use the ProteomeXchange PXD accession to find the original dataset. Interpret the measured phosphosite changes and inferred kinase associations as separate evidence.
-
-## How can I explore potential changes in kinase–substrate relationships?
-
-The **Network-rewiring** tab in KinaseMD 2.0 shows predicted mutation-associated changes in phosphorylation propensity at specific sites. Use the kinase, substrate, site, and predicted direction to select candidates for experimental follow-up. [NAR paper](https://doi.org/10.1093/nar/gkag1170)
+Search **RET** and map **V804M** to the gatekeeper residue. Find the candidate association with **cabozantinib** response in **Drug resistance** and compare it with published inhibition assays of wild-type RET and V804M. For example, a purified-kinase study reported lower cabozantinib activity against V804M than against wild-type RET. Use **Drug perturbation** to trace the KPEM literature and **Network-rewiring** to identify candidate phosphosites to test. Record the cell-line response, the biochemical assay result, and the site-level prediction with their respective sources and model contexts. [KinaseMD 2.0 Supplementary Note 1 and Figure S2](https://academic.oup.com/nar/advance-article/doi/10.1093/nar/gkag1170/9036065#supplementary-data) · [Wirth et al., Figure 3C](https://doi.org/10.1200/PO.19.00189)
 
 <a name="coverage"></a>
 
