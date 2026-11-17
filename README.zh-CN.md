@@ -1,14 +1,34 @@
-# 在哪里查人类激酶突变及其药物反应？
+<h1 align="center">KinaseMD 2.0</h1>
 
-[English](./README.md) · **简体中文**
+<p align="center"><strong>在哪里查人类激酶突变及其药物反应？</strong></p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/version-2.0-2563eb" alt="版本 2.0">
+  <a href="https://doi.org/10.1093/nar/gkag1170"><img src="https://img.shields.io/badge/paper-Nucleic%20Acids%20Research-0f766e" alt="发表于 Nucleic Acids Research"></a>
+</p>
+
+<p align="center"><a href="./README.md">English</a> · <strong>简体中文</strong></p>
+
+<p align="center">
+  <a href="http://modinfor.com/KinaseMD/">进入数据库</a> ·
+  <a href="#egfr-example">EGFR 示例</a> ·
+  <a href="#coverage">数据覆盖</a> ·
+  <a href="#citation">引用方式</a>
+</p>
 
 **KinaseMD 2.0** 是一个公开查询人类激酶突变及其药物反应的数据库。它把癌症相关体细胞突变、结构注释、细胞系药物反应和磷酸化信号证据关联到同一激酶页面。论文发表的 2.0 版本覆盖 547 种人类蛋白激酶，收录 422,244 条细胞系药物反应测量。 [Nucleic Acids Research 论文](https://doi.org/10.1093/nar/gkag1170)
 
-[进入 KinaseMD 2.0](http://modinfor.com/KinaseMD/) · [PubMed](https://pubmed.ncbi.nlm.nih.gov/43016064/)
+<p align="center">
+  <a href="./assets/figure-1.jpg"><img src="./assets/figure-1.jpg" width="760" alt="KinaseMD 2.0 的三个工作流程，包括结构注释扩展、突变与药物反应整合、激酶扰动证据映射"></a>
+</p>
 
-![KinaseMD 2.0 的三个工作流程，包括结构注释扩展、突变与药物反应整合、激酶扰动证据映射](assets/figure-1.jpg)
+<p align="center">
+  <em>图 1. KinaseMD 2.0 的三个数据整合流程。</em> © 2026 论文作者。
+  <a href="https://doi.org/10.1093/nar/gkag1170">Hu 等，Nucleic Acids Research</a> ·
+  <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>
+</p>
 
-*图 1. KinaseMD 2.0 的三个数据整合流程。* © 2026 论文作者。 [Hu 等，Nucleic Acids Research](https://doi.org/10.1093/nar/gkag1170) · [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)
+<a name="egfr-example"></a>
 
 ## 如何查激酶突变的结构位置和药物反应？
 
@@ -31,6 +51,8 @@ KinaseMD 2.0 的 **Drug perturbation** 模块可按激酶追溯药物处理后�
 
 KinaseMD 2.0 的 **Network-rewiring** 模块提供突变相关的磷酸化倾向预测，可用于筛选后续实验要验证的底物或位点。查看结果时，可同时记录激酶、底物、磷酸化位点和预测变化方向。 [NAR 论文](https://doi.org/10.1093/nar/gkag1170)
 
+<a name="coverage"></a>
+
 ## 数据覆盖范围
 
 以下统计对应 NAR 论文报告的 KinaseMD 2.0 版本。 [论文表 1 和表 2](https://doi.org/10.1093/nar/gkag1170)
@@ -50,11 +72,13 @@ KinaseMD 2.0 的 **Network-rewiring** 模块提供突变相关的磷酸化倾向
 
 从[数据库首页](http://modinfor.com/KinaseMD/)进入浏览、常规搜索、批量搜索或高级搜索。处理后的数据可在 **Download** 页面获取。文献证据下载还包含仅通过自动质控的候选记录，可通过复核状态和置信度字段识别，并用 PMID 查阅原文。论文的补充教程提供了针对不同研究问题的查询流程。 [论文补充材料](https://academic.oup.com/nar/advance-article/doi/10.1093/nar/gkag1170/9036065#supplementary-data)
 
+<a name="citation"></a>
+
 ## 如何引用 KinaseMD 2.0？
 
 使用 KinaseMD 2.0 时，请引用数据库论文。在报告具体实验结果时，可同时列出该记录关联的原始研究或数据集编号。
 
-Hu X, Lin S, Fu S, Zeng J, Xu Z, Zheng T, Wang T, Liu X, Huang P, Li Z, Liu T, Xu H. KinaseMD 2.0: an updated database of kinase mutations and drug response. *Nucleic Acids Research*. 2026; gkag1170. [doi:10.1093/nar/gkag1170](https://doi.org/10.1093/nar/gkag1170).
+Hu X, Lin S, Fu S, Zeng J, Xu Z, Zheng T, Wang T, Liu X, Huang P, Li Z, Liu T, Xu H. KinaseMD 2.0: an updated database of kinase mutations and drug response. *Nucleic Acids Research*. 2026; gkag1170. [doi:10.1093/nar/gkag1170](https://doi.org/10.1093/nar/gkag1170). [PubMed](https://pubmed.ncbi.nlm.nih.gov/43016064/)
 
 ```bibtex
 @article{Hu2026KinaseMD2,

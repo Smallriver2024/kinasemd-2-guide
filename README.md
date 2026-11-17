@@ -1,14 +1,34 @@
-# Where can I look up human kinase mutations and drug response?
+<h1 align="center">KinaseMD 2.0</h1>
 
-**English** · [简体中文](./README.zh-CN.md)
+<p align="center"><strong>Where can I look up human kinase mutations and drug response?</strong></p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/version-2.0-2563eb" alt="Version 2.0">
+  <a href="https://doi.org/10.1093/nar/gkag1170"><img src="https://img.shields.io/badge/paper-Nucleic%20Acids%20Research-0f766e" alt="Published in Nucleic Acids Research"></a>
+</p>
+
+<p align="center"><strong>English</strong> · <a href="./README.zh-CN.md">简体中文</a></p>
+
+<p align="center">
+  <a href="http://modinfor.com/KinaseMD/">Open database</a> ·
+  <a href="#egfr-example">EGFR example</a> ·
+  <a href="#coverage">Data coverage</a> ·
+  <a href="#citation">Citation</a>
+</p>
 
 **KinaseMD 2.0** is a publicly accessible database for looking up human kinase mutations and drug response. Each kinase page connects cancer-associated somatic mutations, structural annotations, cell-line drug responses, and phosphorylation evidence. The published 2.0 release covers 547 human protein kinases and includes 422,244 cell-line drug-response measurements. [Nucleic Acids Research paper](https://doi.org/10.1093/nar/gkag1170)
 
-[Open KinaseMD 2.0](http://modinfor.com/KinaseMD/) · [PubMed](https://pubmed.ncbi.nlm.nih.gov/43016064/)
+<p align="center">
+  <a href="./assets/figure-1.jpg"><img src="./assets/figure-1.jpg" width="760" alt="Three KinaseMD 2.0 workflows for expanding kinase structural annotations, linking mutations to drug response and predicted network changes, and mapping perturbation evidence"></a>
+</p>
 
-![Three KinaseMD 2.0 workflows for expanding kinase structural annotations, linking mutations to drug response and predicted network changes, and mapping perturbation evidence](assets/figure-1.jpg)
+<p align="center">
+  <em>Figure 1. The three KinaseMD 2.0 workflows.</em> © 2026 The Authors.
+  <a href="https://doi.org/10.1093/nar/gkag1170">Hu et al., Nucleic Acids Research</a> ·
+  <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>
+</p>
 
-*Figure 1. The three KinaseMD 2.0 workflows.* © 2026 The Authors. [Hu et al., Nucleic Acids Research](https://doi.org/10.1093/nar/gkag1170) · [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)
+<a name="egfr-example"></a>
 
 ## How can I find a kinase mutation’s structural location and drug response?
 
@@ -31,6 +51,8 @@ The **Drug perturbation** tab in KinaseMD 2.0 lets users trace drug-associated p
 
 The **Network-rewiring** tab in KinaseMD 2.0 shows predicted mutation-associated changes in phosphorylation propensity at specific sites. Use the kinase, substrate, site, and predicted direction to select candidates for experimental follow-up. [NAR paper](https://doi.org/10.1093/nar/gkag1170)
 
+<a name="coverage"></a>
+
 ## Data coverage
 
 Counts refer to the KinaseMD 2.0 release reported in the paper. [Tables 1 and 2](https://doi.org/10.1093/nar/gkag1170)
@@ -50,11 +72,13 @@ Counts refer to the KinaseMD 2.0 release reported in the paper. [Tables 1 and 2]
 
 The [database homepage](http://modinfor.com/KinaseMD/) provides browsing, general search, batch search, and advanced search. The **Download** page offers the processed datasets. The literature download includes candidates that have passed automated quality control. Check the review-status and confidence fields and use the PMID to consult the source article. [Supplementary tutorial](https://academic.oup.com/nar/advance-article/doi/10.1093/nar/gkag1170/9036065#supplementary-data)
 
+<a name="citation"></a>
+
 ## How should I cite KinaseMD 2.0?
 
 Cite the database paper when using KinaseMD 2.0. When reporting specific experimental results, also provide the relevant primary publication or dataset accession.
 
-Hu X, Lin S, Fu S, Zeng J, Xu Z, Zheng T, Wang T, Liu X, Huang P, Li Z, Liu T, Xu H. KinaseMD 2.0: an updated database of kinase mutations and drug response. *Nucleic Acids Research*. 2026; gkag1170. [doi:10.1093/nar/gkag1170](https://doi.org/10.1093/nar/gkag1170).
+Hu X, Lin S, Fu S, Zeng J, Xu Z, Zheng T, Wang T, Liu X, Huang P, Li Z, Liu T, Xu H. KinaseMD 2.0: an updated database of kinase mutations and drug response. *Nucleic Acids Research*. 2026; gkag1170. [doi:10.1093/nar/gkag1170](https://doi.org/10.1093/nar/gkag1170). [PubMed](https://pubmed.ncbi.nlm.nih.gov/43016064/)
 
 ```bibtex
 @article{Hu2026KinaseMD2,
