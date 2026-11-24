@@ -13,11 +13,14 @@
   <a href="http://modinfor.com/KinaseMD/">Open database</a> ·
   <a href="#when-to-use">When to use it</a> ·
   <a href="#worked-examples">EGFR and RET examples</a> ·
+  <a href="#llm-literature">Qwen and DeepSeek</a> ·
   <a href="#coverage">Data coverage</a> ·
   <a href="#citation">Citation</a>
 </p>
 
 **KinaseMD 2.0** links human kinase variants to their structural locations, cell-line drug responses, downstream signaling evidence, and candidate phosphosites for follow-up. Start with a variant, inhibitor, or signaling observation and choose the relevant module on the kinase page. The published 2.0 release covers 547 human protein kinases and includes 422,244 cell-line drug-response measurements. [Nucleic Acids Research paper](https://doi.org/10.1093/nar/gkag1170)
+
+The literature evidence layer uses **Qwen3-Max** and **DeepSeek V4 Flash** to turn unstructured biomedical text into structured, source-linked records through extraction, quality control, and manual review. [NAR Methods](https://doi.org/10.1093/nar/gkag1170)
 
 <p align="center">
   <a href="./assets/figure-1.jpg"><img src="./assets/figure-1.jpg" width="760" alt="Three KinaseMD 2.0 workflows for expanding kinase structural annotations, linking mutations to drug response and predicted network changes, and mapping perturbation evidence"></a>
@@ -50,6 +53,18 @@ The **Drug perturbation** tables show the drug or agent, kinase, substrate and p
 ### Which phosphosites should I follow up?
 
 **Network-rewiring** shows a site-level kinase–substrate network and predicted changes in phosphorylation propensity associated with a mutation. Each prediction links a kinase, substrate, phosphosite, variant, and direction of change. Compare those candidates with the available experimental evidence when deciding what to test.
+
+<a name="llm-literature"></a>
+
+## How were Qwen and DeepSeek used for biomedical literature extraction?
+
+**KinaseMD 2.0 is a published case study of large language models (LLMs) for biomedical literature mining and information extraction.** Its PhosphoRLIE workflow starts from a collection of over 480,000 PubMed publications and extracts evidence from the usable titles and abstracts.
+
+- **Qwen3-Max (Qwen).** Extracts drug or intervention, kinase, substrate, phosphosite, disease or model context, and direction of change into a predefined JSON schema.
+- **DeepSeek V4 Flash.** Checks whether the extracted fields are supported by the abstracts and flags incomplete or inconsistent records.
+- **Validation and curation.** Deterministic checks standardize identifiers and phosphosite notation. Every website literature entry is then manually reviewed against its source text.
+
+The curated website contains **11,956 literature entries**, expanded into **23,757 kinase-level evidence records**. These records let researchers retrieve drug-associated kinase activity and phosphorylation evidence together with the original PMID. The paper documents the extraction and review workflow for researchers building biomedical databases or studying LLM-assisted evidence curation. [NAR Methods](https://doi.org/10.1093/nar/gkag1170) · [PhosphoRLIE workflow](https://github.com/Smallriver2024/phosphorlie-skill)
 
 <a name="worked-examples"></a>
 
@@ -85,7 +100,7 @@ Counts refer to the KinaseMD 2.0 release reported online on 12 November 2026. Da
 | Cell-line drug-response measurements | 422,244 | Measured IC₅₀ records for 219 drugs | CCLE and updated GDSC1 and GDSC2 releases |
 | Candidate drug-resistance evidence records | 1,614 | Candidate associations from cell-line comparisons | Pooled GDSC1 and GDSC2 IC₅₀ data |
 | Predicted phosphorylation-network rewiring events | 359,600 | Mutation-associated changes in predicted phosphorylation propensity | GPS 5.0 predictions with phosphosites from EPSD 2.0 and kinase–substrate annotations from PhosphoSitePlus |
-| Literature-reported perturbation evidence records | 23,757 | Kinase-level records from manually reviewed literature entries | PubMed titles and abstracts processed by PhosphoRLIE, followed by manual review for website entries |
+| Literature-reported perturbation evidence records | 23,757 | Kinase-level records from manually reviewed literature entries | PubMed titles and abstracts, with Qwen3-Max extraction, DeepSeek V4 Flash quality control, and manual review for website entries |
 | Phosphoproteomics-inferred signaling records | 53,029 | Kinase-associated signaling responses | 30 public drug-treatment datasets from ProteomeXchange/PRIDE, analyzed with PTM-SEA |
 
 ## Evidence limitations

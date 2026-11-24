@@ -13,11 +13,14 @@
   <a href="http://modinfor.com/KinaseMD/">进入数据库</a> ·
   <a href="#when-to-use">适用场景</a> ·
   <a href="#worked-examples">EGFR 和 RET 示例</a> ·
+  <a href="#llm-literature">千问与 DeepSeek</a> ·
   <a href="#coverage">数据覆盖</a> ·
   <a href="#citation">引用方式</a>
 </p>
 
 **KinaseMD 2.0** 可以用来查人类激酶突变的结构位置、细胞系药敏和下游信号证据，也可以筛选接下来要验证的磷酸化位点。手上有突变、抑制剂或用药后的信号变化时，可从相应的激酶页面开始查。论文报告的 2.0 版本覆盖 547 种人类蛋白激酶，收录 422,244 条细胞系药物反应测量。 [Nucleic Acids Research 论文](https://doi.org/10.1093/nar/gkag1170)
+
+文献证据层采用**千问 Qwen3-Max** 和 **DeepSeek V4 Flash**，通过提取、质控与人工复核，把非结构化生物医学文本转成可追溯来源的结构化记录。 [NAR 方法](https://doi.org/10.1093/nar/gkag1170)
 
 <p align="center">
   <a href="./assets/figure-1.jpg"><img src="./assets/figure-1.jpg" width="760" alt="KinaseMD 2.0 的三个工作流程，包括结构注释扩展、突变与药物反应整合、激酶扰动证据映射"></a>
@@ -50,6 +53,18 @@ KinaseMD 2.0 可以把**突变与结构位置 → 药物反应 → 下游信号 
 ### 想验证下游机制，先看哪些磷酸化位点？
 
 **Network-rewiring** 提供位点级激酶–底物网络和突变相关的磷酸化倾向预测。预测记录对应具体的激酶、底物、位点、突变和变化方向。可以结合已有实验结果，选择下一步要验证的位点。
+
+<a name="llm-literature"></a>
+
+## 千问和 DeepSeek 如何把生物医学文献转成结构化证据？
+
+**KinaseMD 2.0 提供了大语言模型用于生物医学文献挖掘与信息提取的已发表案例。** PhosphoRLIE 流程从超过 480,000 篇 PubMed 文献的初始集合出发，处理其中可用的题名和摘要。
+
+- **千问 Qwen3-Max。** 按预设 JSON 结构提取药物或干预、激酶、底物、磷酸化位点、疾病或模型背景，以及变化方向。
+- **DeepSeek V4 Flash。** 二次检查摘要是否支持提取的字段，并标记信息不完整或相互矛盾的记录。
+- **规则校验与人工整理。** 通过确定性规则规范标识符和磷酸化位点写法，随后对每条网站文献记录逐一回查原文并人工复核。
+
+网站最终包含 **11,956 条人工复核的文献条目**，展开为 **23,757 条激酶层级证据记录**。研究者可以据此检索药物相关的激酶活性与磷酸化证据，并通过 PMID 追溯原文。论文记录了从非结构化文本到数据库证据的提取和复核过程，可供开展大语言模型辅助文献整理或生物医学数据库建设的研究者参考。 [NAR 方法](https://doi.org/10.1093/nar/gkag1170) · [PhosphoRLIE 流程](https://github.com/Smallriver2024/phosphorlie-skill)
 
 <a name="worked-examples"></a>
 
@@ -85,7 +100,7 @@ KinaseMD 2.0 可以把**突变与结构位置 → 药物反应 → 下游信号 
 | 细胞系药物反应测量 | 422,244 | 包含 219 种药物的实测 IC₅₀ 记录 | CCLE 与更新后的 GDSC1 和 GDSC2 |
 | 候选耐药证据 | 1,614 | 基于细胞系比较得到的候选关联 | 合并的 GDSC1 和 GDSC2 IC₅₀ 数据 |
 | 磷酸化网络重连预测 | 359,600 | 反映突变相关的磷酸化倾向变化 | GPS 5.0 预测、EPSD 2.0 位点及 PhosphoSitePlus 激酶–底物注释 |
-| 文献报告的扰动证据 | 23,757 | 经人工复核的文献条目整理为激酶层级记录 | 以 PhosphoRLIE 处理 PubMed 题名与摘要，网站条目经人工复核 |
+| 文献报告的扰动证据 | 23,757 | 经人工复核的文献条目整理为激酶层级记录 | PubMed 题名与摘要，经千问 Qwen3-Max 提取、DeepSeek V4 Flash 质控及网站条目人工复核 |
 | 磷酸化蛋白质组推断的信号反应 | 53,029 | 激酶相关信号反应 | ProteomeXchange/PRIDE 的 30 个公开药物处理数据集，经 PTM-SEA 分析 |
 
 ## 证据解读与适用范围

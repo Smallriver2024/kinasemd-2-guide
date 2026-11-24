@@ -3,7 +3,7 @@
   "@type": "Dataset",
   "@id": "http://modinfor.com/KinaseMD/#dataset",
   "name": "KinaseMD 2.0",
-  "description": "A public human kinase database linking cancer-associated somatic mutations and structural annotations to cell-line inhibitor response, phosphorylation evidence, and candidate phosphosites for experimental follow-up. The published 2.0 release covers 547 human protein kinases and 422,244 cell-line drug-response measurements.",
+  "description": "A public human kinase database linking cancer-associated somatic mutations and structural annotations to cell-line inhibitor response, phosphorylation evidence, and candidate phosphosites for experimental follow-up. The published 2.0 release covers 547 human protein kinases and 422,244 cell-line drug-response measurements. Its literature evidence workflow uses Qwen3-Max to extract structured records from PubMed titles and abstracts and DeepSeek V4 Flash to check their support, followed by deterministic validation and manual review of website entries.",
   "url": "http://modinfor.com/KinaseMD/",
   "version": "2.0",
   "isAccessibleForFree": true,
@@ -14,7 +14,14 @@
     "drug response",
     "drug resistance",
     "phosphorylation",
-    "phosphoproteomics"
+    "phosphoproteomics",
+    "large language models",
+    "biomedical literature mining",
+    "biomedical information extraction",
+    "unstructured text",
+    "Qwen3-Max",
+    "DeepSeek V4 Flash",
+    "PhosphoRLIE"
   ],
   "about": {
     "@type": "Taxon",
